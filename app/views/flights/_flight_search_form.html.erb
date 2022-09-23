@@ -1,0 +1,15 @@
+<%= form_with url: "/flights", method: :get do |f| %>
+    <%= f.label :From %>
+    <%= f.select :depature_airport_id, options_for_select(@airport, blank: true) %>
+
+    <%= f.label :To %>
+    <%= f.select :arrival_airport_id, options_for_select(@airport, blank: true) %>
+
+    <%= f.label :Tickets %>
+    <%= f.select :count, options_for_select([1,2,3,4]) %>
+
+    <%= f.label :Date %>
+    <%= f.date_field :travel_date, value: params[:travel_date] %>
+
+    <%= f.submit "Find Flight" %>
+<%end%>
